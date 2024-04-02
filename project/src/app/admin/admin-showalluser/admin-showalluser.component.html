@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="header">USER MANAGEMENT</h1>
+  <input type="text" placeholder="Search users..." (keyup)="searchUsers($event)" class="search-input"/>
+
+  <table class="table table-striped table-dark user-table">
+    <thead>
+      <tr>
+        <th scope="col">Sl No</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Category</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.category }}</td>
+        <td>
+          <button *ngIf="!user.is_blocked" class="btn btn-block btn-success" (click)="block(user)">Block</button>
+          <button *ngIf="user.is_blocked" class="btn btn-block btn-danger" (click)="block(user)">Unblock</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p-paginator [rows]="5" [totalRecords]="totalrecords"  (onPageChange)="paginate($event)"></p-paginator>
+</div>
+
+<app-admin-footer></app-admin-footer>

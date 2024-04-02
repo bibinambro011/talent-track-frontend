@@ -1,0 +1,42 @@
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    background-color: #e0eff9;
+    border: 2px solid black;
+    padding: 20px;
+    font-family: Geneva, sans-serif;
+    font-size: 3vh;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-table {
+    width: 100%;
+  }
+  
+  .user-table th,
+  .user-table td {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .btn {
+    padding: 8px 20px;
+    margin: 5px;
+    font-size: 1rem;
+  }
+  .wallet-section {
+    margin: 20px;
+    max-width: 200px;
+    background-color: white;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px rgb(189, 185, 185);
+   
+  }
+
+  /* transaction */
+  

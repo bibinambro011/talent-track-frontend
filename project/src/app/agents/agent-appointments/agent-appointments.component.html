@@ -1,0 +1,63 @@
+<div class="container"><br><br>
+  <button class="btn btn-secondary" (click)="downloadexcel()">downloadreport </button>
+
+  <h2 class="header">Appointment Details</h2>
+
+  <div class="search-input">
+    <select class="status-select" [(ngModel)]="selectedOption" (change)="bookingsStatus(selectedOption)">
+      <option value="All" selected>All</option>
+      <option value="pending">Pending</option>
+      <option value="Confirmed">Confirmed</option>
+      <option value="consulted">Consulted</option>
+      <option value="agent cancelled">Agent Cancelled</option>
+      <option value="cancelled">User Cancelled</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table class="table table-striped table-dark appointment-table" id="table-data">
+      <!-- Table headers -->
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th><!-- Empty header for Cancel button column -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table rows -->
+        <tr *ngFor="let item of slots">
+          <td>{{ item.date | date }}</td>
+          <td>{{ item.time }}</td>
+          <td>{{ item?.bookedUserId?.firstName }}</td>
+          <td>{{ item?.bookedUserId?.email }}</td>
+          <td>
+            {{ item.status }}
+            <div *ngIf="item.status == 'Confirmed'">
+              <select class="status-select"
+                      [(ngModel)]="selectedOptions[item._id]"
+                      (change)="onRejectConsultChange(selectedOptions[item._id], item._id)">
+                <option value="agent cancelled" style="background-color: red;">Reject</option>
+                <option value="consulted" style="background-color: green;">Consult</option>
+              </select>
+            </div>
+          </td>
+          <td>
+            <button *ngIf="item.status == 'pending'"
+                    type="button"
+                    class="btn btn-block btn-danger cancel-button"
+                    (click)="cancelSlot(item._id)">
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p-paginator [rows]="5" [totalRecords]="recordCount" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+
+<app-agent-footer></app-agent-footer>

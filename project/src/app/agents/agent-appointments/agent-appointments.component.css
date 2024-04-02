@@ -1,0 +1,40 @@
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #e0eff9;
+ margin-top: 20px;
+  padding: 20px;
+  font-family: Geneva, sans-serif;
+  font-size: 3vh;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.appointment-table {
+  width: 100%;
+}
+
+.appointment-table th,
+.appointment-table td {
+  text-align: center;
+  padding: 10px;
+}
+
+.cancel-button {
+  padding: 8px 20px;
+  margin: 5px;
+  font-size: 1rem;
+}

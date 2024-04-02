@@ -1,0 +1,54 @@
+
+.container {
+  
+    max-width: 1200px; /* adjust as needed */
+    margin: auto;
+    background-image: url("https://qph.cf2.quoracdn.net/main-qimg-8b585fb4a5c9fedbb899cfb0cf0331a7-lq");
+}
+
+.messages {
+    margin-top: 60px;
+    list-style-type: none;
+    padding: 0;
+    max-height: 600px; /* adjust height as needed */
+    overflow-y: auto; /* enable vertical scrollbar */
+}
+
+.singleMessage {
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.sent {
+    float: left;
+    background-color: #DCF8C6; /* adjust as needed */
+    border-radius: 15px 15px 0 15px;
+    padding: 10px 15px;
+}
+
+.received {
+    float: right;
+    background-color: #E5E5EA; /* adjust as needed */
+    border-radius: 15px 15px 15px 0;
+    padding: 10px 15px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.input {
+    border-radius: 20px;
+}
+
+.button-css {
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.video-call-container {
+    margin-top: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+}

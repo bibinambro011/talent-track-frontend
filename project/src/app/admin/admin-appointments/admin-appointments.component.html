@@ -1,0 +1,35 @@
+<div class="table-container"><br><br>
+  <button class="btn btn-secondary" (click)="downloadexcel()">downloadreport </button><br><br>
+
+    <h2 class="table-heading">All slots details</h2>
+  
+    <table class="table table-striped table-dark mt-10" id="table-data">
+      <thead>
+        <tr>
+          <th scope="col">Sl No</th>
+          <th scope="col">Agent Name</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Booking Date</th>
+          <th scope="col">Booking Amount</th>
+          <th scope="col">Payment Status</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let slots of addedslots; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ slots.agentId.firstName }}</td>
+          <td>{{ slots.bookedUserId.firstName}}</td>
+          <td>{{ slots.date | date }}</td>
+          <td>{{ slots.bookingAmount }}</td>
+          <td>{{ slots.paymentstatus }}</td>
+          <td>{{ slots.status }}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  
+    <p-paginator [rows]="10" [totalRecords]="records" (onPageChange)="transactionpaginate($event)"></p-paginator>
+  </div>
+  
+ <app-admin-footer></app-admin-footer>
