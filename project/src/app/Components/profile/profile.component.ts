@@ -66,8 +66,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
   }
-  filterdates(){
+  async filterdates(){
     console.log('filterdates==>', this.date, this.endDate)
+    let dateobj={
+      startdate:this.date,
+      endDate:this.endDate,
+      status:this.bookingstatus,
+      id:this.id
+    }
+   await this.userservice.appontmentfilterbydate(dateobj).toPromise().then((res:any)=>{
+    this.userbookings = [...res]
+
+  })
+  this.totalrecords = this.userbookings
+ this.recordCount=this.totalrecords.length
+  this.defaultPaginate()
+
+  
+    // this.userbookings = [...data];
   }
 
  async dashboard() {

@@ -96,6 +96,9 @@ export class UserService {
   userTransactionHistory(userId:string):Observable<Transaction[]>{
     return this.http.get<Transaction[]>(`${this.api}/users/userTransactionHistory?userId=${userId}`)
   }
+  appontmentfilterbydate(datedetails:any):Observable<any>{
+    return this.http.get<any>(`${this.api}/users/filterappointmentbydate?datedetails=${datedetails}`)
 
 
+}
 }
