@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       id:this.id
     }
     console.log("dateobj is==>", dateobj)
-   await this.userservice.appontmentfilterbydate(dateobj).toPromise().then((res:any)=>{
+   await this.userservice.appontmentfilterbydate(this.date,this.endDate,this.bookingstatus,this.id).toPromise().then((res:any)=>{
     this.userbookings = [...res]
 
   })
