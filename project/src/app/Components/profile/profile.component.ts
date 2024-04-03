@@ -39,7 +39,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   transactionCount!:number;
   totaltransactions:any;
+ 
+  bookingstatus:string="All"
+  date: Date | undefined = new Date();
+  
+  mindate = new Date();
 
+  endDate:Date |undefined=new Date()
 
   transactions:any=[]
   eventdata: EventEmitter<string> = new EventEmitter<string>();
@@ -59,6 +65,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.eventdata.emit('data send from profile component');
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
+  }
+  filterdates(){
+    console.log('filterdates==>', this.date, this.endDate)
   }
 
  async dashboard() {
@@ -144,6 +153,7 @@ defaulttransactionPaginate(){
     this.footervisible=true
   }
  async bookings(data: string) {
+  this.bookingstatus=data;
     this.visibilityhandle();
     this.showappointments = true;
     this.userbookings = [];
