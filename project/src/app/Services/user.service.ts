@@ -97,7 +97,7 @@ export class UserService {
     return this.http.get<Transaction[]>(`${this.api}/users/userTransactionHistory?userId=${userId}`)
   }
   appontmentfilterbydate(dateDetails: any): Observable<any> {
-    return this.http.get<any>(`${this.api}/users/filterappointmentbydate?startdate=${dateDetails.startdate}&enddate=${dateDetails.enddate}&id=${dateDetails.id}&status=${dateDetails.status}`);
+    return this.http.get<any>(`${this.api}/users/filterappointmentbydate?startdate=${dateDetails.startdate}&enddate=${dateDetails.endDate}&id=${dateDetails.id}&status=${dateDetails.status}`);
   }
   
 }
