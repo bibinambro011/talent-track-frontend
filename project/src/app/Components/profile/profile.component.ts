@@ -67,13 +67,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.router.navigate(['/user/login']);
   }
   async filterdates(){
-    console.log('filterdates==>', this.date, this.endDate)
+    console.log('filterdates==>', this.date, this.endDate,this.id, this.bookingstatus)
     let dateobj={
       startdate:this.date,
       endDate:this.endDate,
       status:this.bookingstatus,
       id:this.id
     }
+    console.log("dateobj is==>", dateobj)
    await this.userservice.appontmentfilterbydate(dateobj).toPromise().then((res:any)=>{
     this.userbookings = [...res]
 
