@@ -48,7 +48,7 @@ const routes: Routes = [
         component: AgentProfilePageComponent,
         canActivate: [agentauthGuard],
       },
-      {path:'agentvideocall/:roomId', component:VideochatComponent,canActivate: [agentauthGuard]},
+      {path:'agentvideocall/:roomId', component:VideochatComponent},
       {path:'agent-chat',component:ChatComponent,canActivate: [agentauthGuard]},
      
     ],
