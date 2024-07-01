@@ -1,3 +1,3 @@
 export const environment = {
-    api:'https://rihannasrave.online'
+    api:'https://talentrack.rihannasrave.online'
 };
