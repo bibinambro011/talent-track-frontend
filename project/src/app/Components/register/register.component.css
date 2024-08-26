@@ -1,5 +1,5 @@
 /*Start Global Style*/
-*{
+/* *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,9 +20,9 @@ body{
 }
 
 .login ,.register{width: 50%}
-
+ */
 /*Start Login Style*/
-.login{
+/* .login{
     float:left;
     background-color: #fafafa;
     height: 100%;
@@ -96,9 +96,9 @@ input[type="checkbox"]{
 .login .copyright{
     display: inline-block;
     float: none;
-}
+} */
 /*Start Register Style*/
-.register{
+/* .register{
     float: right;
     background-image: linear-gradient(135deg, #09203F 5%, #537895 95%);
     height: 100%;
@@ -130,4 +130,4 @@ input[type="checkbox"]{
     color:#09203F;
     background-color: #fff;
     cursor: pointer;
-}
+} */
