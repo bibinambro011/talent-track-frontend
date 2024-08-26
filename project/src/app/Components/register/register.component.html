@@ -1,123 +1,150 @@
 <app-navbar></app-navbar>
 
-<div class="container">
-  <div class="login">
-    <div class="container">
-      <form
-        [formGroup]="profileForm"
-        (ngSubmit)="onSubmit()"
-        #myform="ngForm"
-        class="max-w-md mx-auto flex flex-col space-y-4"
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()"
+      #myform="ngForm"
+      class="flex flex-col space-y-4"
+    >
+      <h1 class="text-2xl font-bold mb-4 text-center text-gray-800">
+        User Register
+      </h1>
+
+      <input
+        id="first-name"
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('firstName', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
       >
-        <h1>User Register</h1>
-        <input
-          id="first-name"
-          type="text"
-          formControlName="firstName"
-          placeholder="First Name"
-        />
-        <div
-          *ngIf="hasError('firstName', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          First name is required.
-        </div>
-        <input
-          id="last-name"
-          type="text"
-          formControlName="lastName"
-          placeholder="Last Name"
-        />
-        <div
-          *ngIf="hasError('lastName', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          Last name is required.
-        </div>
+        First name is required.
+      </div>
 
-        <input type="email" placeholder="Email" formControlName="email" />
-        <div *ngIf="hasError('email', 'required') && myform?.submitted" class="text-red-500">Email is required.</div>
-        <div *ngIf="hasError('email', 'email') && myform?.submitted" class="text-red-500">Please enter a valid email.</div>
+      <input
+        id="last-name"
+        type="text"
+        formControlName="lastName"
+        placeholder="Last Name"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('lastName', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Last name is required.
+      </div>
 
-        <input
-          id="password"
-          type="password"
-          formControlName="password"
-          placeholder="Password"
-        />
-        <div
-          *ngIf="hasError('password', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          Password is required.
-        </div>
-        <div
-          *ngIf="hasError('password', 'minlength') && myform?.submitted"
-          class="text-red-500"
-        >
-          Password should be at least 6 characters long.
-        </div>
-        <input
-          id="confirm_password"
-          type="password"
-          formControlName="confirmPassword"
-          placeholder="Confirm Password"
-        />
-        <div
-          *ngIf="hasError('confirmPassword', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          Confirm Password is required.
-        </div>
-     
-        <input
-          id="image"
-          type="file"
-          (change)="onFileSelected($event)"
-          accept="image/*"
-        />
-        <div
-          *ngIf="hasError('image', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          Image is required.
-        </div>
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('email', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Email is required.
+      </div>
+      <div
+        *ngIf="hasError('email', 'email') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Please enter a valid email.
+      </div>
 
-        <label for="category">Select a category</label>
-        <select id="category" formControlName="category">
-          <option value="football">FOOTBALL</option>
-          <option value="cricket">CRICKET</option>
-          <option value="badminton">BADMINTON</option>
-          <option value="basketball">BASKETBALL</option>
-          <option value="hockey">HOCKEY</option>
-          <option value="volleyball">VOLLEYBALL</option>
-        </select>
-        <div
-          *ngIf="hasError('category', 'required') && myform?.submitted"
-          class="text-red-500"
-        >
-          Category is required.
-        </div>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('password', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Password is required.
+      </div>
+      <div
+        *ngIf="hasError('password', 'minlength') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Password should be at least 6 characters long.
+      </div>
 
-        <button type="submit"  [disabled]="submitbattonhandle">Register new account</button>
-      </form>
+      <input
+        id="confirm_password"
+        type="password"
+        formControlName="confirmPassword"
+        placeholder="Confirm Password"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('confirmPassword', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Confirm Password is required.
+      </div>
 
-      <ul>
-        <li><i class="fab fa-facebook-f fa-2x"></i></li>
-        <li><i class="fab fa-twitter fa-2x"></i></li>
-        <li><i class="fab fa-github fa-2x"></i></li>
-        <li><i class="fab fa-linkedin-in fa-2x"></i></li>
-      </ul>
-    </div>
-  </div>
+      <input
+        id="image"
+        type="file"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <div
+        *ngIf="hasError('image', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Image is required.
+      </div>
 
-  <div class="register">
-    <div class="container">
-      <i class="fas fa-user-plus fa-5x"></i>
-      <img src="/assets/images/tt.jpg" alt="">
-      <h2>Hello, friend!</h2>
-      <p>Enter your personal details to start your journey with us.</p>
-      <button><a routerLink="/user/login">Go to Login <i class="fas fa-arrow-circle-right"></i></a></button> 
-    </div>
+      <label for="category" class="text-gray-700 font-semibold"
+        >Select a category</label
+      >
+      <select
+        id="category"
+        formControlName="category"
+        class="border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      >
+        <option value="football">FOOTBALL</option>
+        <option value="cricket">CRICKET</option>
+        <option value="badminton">BADMINTON</option>
+        <option value="basketball">BASKETBALL</option>
+        <option value="hockey">HOCKEY</option>
+        <option value="volleyball">VOLLEYBALL</option>
+      </select>
+      <div
+        *ngIf="hasError('category', 'required') && myform?.submitted"
+        class="text-red-500 text-sm"
+      >
+        Category is required.
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="submitbattonhandle"
+        class="bg-blue-900 text-white font-semibold p-2 rounded-md hover:bg-blue-600 transition duration-300 disabled:bg-gray-400"
+      >
+        Register new account
+      </button>
+      <h3 style="text-align: center">
+        don't have an account?
+        <button>
+          <a routerLink="/user/login" class="text-blue-900"
+            >Go to Login <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </button>
+      </h3>
+    </form>
   </div>
 </div>
+<app-footer></app-footer>
